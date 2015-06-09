@@ -19,6 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
     <!--[if lt IE 9]>
         <script src="js/html5.js"></script>
         <script src="js/respond.js"></script>
@@ -137,7 +138,19 @@
                 </div>
                 
             </div>-->
-            
+             <div class="newsletter clearfix">
+                <div class="wrap">
+                    <div class="newsletter-title">Stay Updated!</div>
+                    <div class="newsletter-form clearfix">
+                        <form action="" onsubmit="return signup(this)">
+                            <input id="email" type="email" placeholder="john@doe.com" class="input-text">
+                            <input  type="submit"  class="button" value="Subscribe">
+                        </form>
+                    </div>
+                    <p>Get to know about new releases instantly.</p>
+                </div>
+                <!-- /.wrap -->
+            </div>
             <div class="simple clearfix">
                 <div class="wrap">
                     <div class="simple-content">
@@ -166,6 +179,27 @@
 Follow @twitter
 </a>
 <script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>  
+
+<script>
+   
+    var onSignupComplete = function(error) {
+       alert("We will get back to you soon!");
+    };
+    function signup(formObj) {
+    	debugger
+        // Store emails to firebase
+        var myFirebaseRef = new Firebase("https://lazymine.firebaseio.com");
+        myFirebaseRef.push({name:document.getElementById("email").value });
+       
+       myFirebaseRef.on('child_added', function(snapshot) {
+ 		alert("We will get back to you soon!");
+	});
+
+        return false;
+    }
+
+
+</script>
                   
                     
                 </div>
