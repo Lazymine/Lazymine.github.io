@@ -186,7 +186,7 @@ Follow @twitter
        alert("We will get back to you soon!");
     };
     function signup(formObj) {
-    	debugger
+    	
         // Store emails to firebase
         var myFirebaseRef = new Firebase("https://lazymine.firebaseio.com");
         myFirebaseRef.push({name:document.getElementById("email").value });
